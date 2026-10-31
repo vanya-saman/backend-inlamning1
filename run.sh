@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 echo "Launching..."
-mvn -q spring-boot:run
+./mvnw -q spring-boot:run
