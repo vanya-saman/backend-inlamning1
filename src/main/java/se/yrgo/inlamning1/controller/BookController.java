@@ -4,27 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import se.yrgo.inlamning1.data.ExampleBooks;
 import se.yrgo.inlamning1.domain.Book;
-
-
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 @Controller
 public class BookController {
-    private final List<Book> books = List.of(
-            new Book("Time of Contempt", "Andrzej Sapkowski", "Fantasy"),
-            new Book("The Blade Itself", "Joe Abercrombie", "Fantasy"),
-            new Book("A Confederacy of Dunces", "John Kennedy Toole", "Comedy"),
-            new Book("The Pillars of the Earth", "Ken Follett", "History"),
-            new Book("I'm My Own Grandpa", "Gaeldol", "Comedy"),
-            new Book("Morning Star", "Carlovac Townway", "History"),
-            new Book("Poison Song", "Bristin Xel", "History"),
-            new Book("A Dance in Fire", "Waughin Jarth", "Adventure"),
-            new Book("Battle of Sancre Tor", "Anonymous", "History")
-    );
 
     @GetMapping("/home")
     public String getHomePage(Model model) {
@@ -52,9 +38,9 @@ public class BookController {
 
         if (genre == null || genre.isBlank()) {
             message = "All Books";
-            booksToDisplay = books;
+            booksToDisplay = ExampleBooks.books;
         } else {
-            booksToDisplay = books.stream()
+            booksToDisplay = ExampleBooks.books.stream()
                     .filter(book -> book.getGenre().equalsIgnoreCase(genre))
                     .toList();
 
