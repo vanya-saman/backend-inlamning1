@@ -20,6 +20,11 @@ public class BookController {
         return "home";
     }
 
+    @GetMapping("/")
+    public String redirectToHome() {
+        return "redirect:/home";
+    }
+
     @GetMapping("/books")
     public String showBooks(Model model) {
         var recommendedBooks = List.of(
@@ -56,7 +61,7 @@ public class BookController {
         return "genre";
     }
 
-    static List<Book> sortBooksByAuthor(List<Book> books){
+    static List<Book> sortBooksByAuthor(List<Book> books) {
         return books.stream()
                 .sorted(Comparator.comparing(Book::getAuthor))
                 .toList();
