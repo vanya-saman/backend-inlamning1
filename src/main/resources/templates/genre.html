@@ -53,7 +53,7 @@
     <p th:text="${message}"></p>
     <hr>
     <table>
-        <tr>
+        <tr th:if="${books.size() > 0}">
             <th style="text-align: left" >Title</th>
             <th style="text-align: right">Author</th>
         </tr>
