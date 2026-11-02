@@ -45,10 +45,4 @@ public class ExampleBooks {
             new Book("The Locked Room", "Porbert Lyttumly", "Adventure"),
             new Book("Purloined Shadows", "Waughin Jarth", "Adventure")
     );
-
-    public static List<Book> sortBooksByAuthor(List<Book> books){
-        return books.stream()
-                .sorted(Comparator.comparing(Book::getAuthor))
-                .toList();
-    }
 }

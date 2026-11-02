@@ -11,8 +11,6 @@ import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 
-import static se.yrgo.inlamning1.data.ExampleBooks.sortBooksByAuthor;
-
 @Controller
 public class BookController {
 
@@ -56,5 +54,11 @@ public class BookController {
         model.addAttribute("message", message);
         model.addAttribute("books", sortBooksByAuthor(booksToDisplay));
         return "genre";
+    }
+
+    static List<Book> sortBooksByAuthor(List<Book> books){
+        return books.stream()
+                .sorted(Comparator.comparing(Book::getAuthor))
+                .toList();
     }
 }
