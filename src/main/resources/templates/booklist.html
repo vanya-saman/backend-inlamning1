@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <style>
     body {
-        font-size: 25px;
+        font-size: 18px;
         font-family: monospace;
         display: flex;
         flex-direction: column;
@@ -18,18 +18,29 @@
         border: 1px solid black;
         border-radius: 20px;
     }
+    table{
+        width: 100%;
+    }
+    th{
+        text-align: left;
+    }
 </style>
 <body>
 <span><a href="/home">Home</a> <a href="/genre">Search by genre</a></span>
 <h1>Recommended Books</h1>
 <div class="container">
-    <ul>
-        <li th:each="book : ${books}">
-            <span th:text="${book.title} + ', '">Title</span>
-            <span style="font-weight: bold" th:text="${book.author} + ', '">Author</span>
-            <span style="font-style: italic" th:text="${book.genre}">Genre</span>
-        </li>
-    </ul>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th style="text-align: right">Genre</th>
+        </tr>
+        <tr th:each="book: ${books}">
+            <td style="text-align: left" th:text="${book.title}">Title</td>
+            <td style="text-align: left" th:text="${book.author}">Author</td>
+            <td style="text-align: right" th:text="${book.genre}">Genre</td>
+        </tr>
+    </table>
 </div>
 
 </body>

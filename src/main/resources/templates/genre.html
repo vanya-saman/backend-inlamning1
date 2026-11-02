@@ -21,10 +21,8 @@
         border-radius: 20px;
     }
 
-    .books{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+    table{
+        width: 100%;
     }
     p{
         margin: 0;
@@ -54,10 +52,16 @@
 <div class="container">
     <p th:text="${message}"></p>
     <hr>
-    <div class="books" th:each="book : ${books}">
-        <span th:text="${book.title}"></span>
-        <span style="font-style: italic" th:text="${book.author}"></span>
-    </div>
+    <table>
+        <tr>
+            <th style="text-align: left" >Title</th>
+            <th style="text-align: right">Author</th>
+        </tr>
+        <tr th:each="book: ${books}">
+            <td style="text-align: left" th:text="${book.title}">Title</td>
+            <td style="text-align: right" th:text="${book.author}">Authro</td>
+        </tr>
+    </table>
 </div>
 
 </body>
