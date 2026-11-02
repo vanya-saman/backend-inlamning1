@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import se.yrgo.inlamning1.data.ExampleBooks;
 import se.yrgo.inlamning1.domain.Book;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -27,7 +28,9 @@ public class BookController {
                 new Book("A Dance in Fire", "Waughin Jarth", "Adventure"),
                 new Book("Battle of Sancre Tor", "Anonymous", "History")
         );
-        model.addAttribute("books", recommendedBooks);
+        model.addAttribute("books",
+                recommendedBooks.stream().sorted(Comparator.comparing(Book::getAuthor))
+        );
         return "booklist";
     }
 
@@ -50,7 +53,9 @@ public class BookController {
         }
 
         model.addAttribute("message", message);
-        model.addAttribute("books", booksToDisplay);
+        model.addAttribute("books",
+                booksToDisplay.stream().sorted(Comparator.comparing(Book::getAuthor))
+        );
         return "genre";
     }
 }
