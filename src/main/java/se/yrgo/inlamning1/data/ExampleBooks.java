@@ -2,6 +2,7 @@ package se.yrgo.inlamning1.data;
 
 import se.yrgo.inlamning1.domain.Book;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class ExampleBooks {
@@ -44,4 +45,10 @@ public class ExampleBooks {
             new Book("The Locked Room", "Porbert Lyttumly", "Adventure"),
             new Book("Purloined Shadows", "Waughin Jarth", "Adventure")
     );
+
+    public static List<Book> sortBooksByAuthor(List<Book> books){
+        return books.stream()
+                .sorted(Comparator.comparing(Book::getAuthor))
+                .toList();
+    }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <style>
     body {
         font-size: 25px;
@@ -17,7 +17,7 @@
 
 <div class="container">
     <h1>Welcome to the book club!</h1>
-    <p>The date is <span th:text="${current_date}">Could not display date</span></p>
+    <p>The date is <span th:text="${current_date}">"Could not display date"</span></p>
 
     <a href="/books">Recommended books</a><br>
     <a href="/genre">Search by genre</a>

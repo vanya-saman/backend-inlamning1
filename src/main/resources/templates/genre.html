@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <style>
     body {
         font-size: 22px;
@@ -59,7 +59,7 @@
         </tr>
         <tr th:each="book: ${books}">
             <td style="text-align: left" th:text="${book.title}">Title</td>
-            <td style="text-align: right" th:text="${book.author}">Authro</td>
+            <td style="text-align: right" th:text="${book.author}">Author</td>
         </tr>
     </table>
 </div>
